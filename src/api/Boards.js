@@ -7,4 +7,4 @@ export const getAllBoards = (tokenHolder) => {
 };
 
 export const getBoard = (id, tokenHolder) =>
-    axiosInstance.get(`1/boards/${id}${keyToken(tokenHolder)}`);
+    axiosInstance.get(`1/boards/${id}${keyToken(tokenHolder)}&lists=open&cards=visible`);

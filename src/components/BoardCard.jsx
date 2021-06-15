@@ -13,10 +13,10 @@ export const BoardCard = ({ board }) => {
     const boardName = board ? board.name : 'Create a new Board';
     return (
         <div
-            className="card-container color-default"
+            className="board-card-container board-color-default"
             onClick={handleBoardClick}>
 
-            <div className="card-text" title={boardName}>
+            <div className="board-card-text" title={boardName}>
                 {boardName}
             </div>
         </div>

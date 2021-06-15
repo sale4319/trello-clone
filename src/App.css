@@ -1,9 +1,9 @@
-/* APP.JS */
+/* MAIN VIEW */
 .content {
   display: flex;
-  padding: 10px 80px;
+  padding: 50px 80px;
 }
-/* END OF APP.JS */
+/* END OF MAIN VIEW */
 
 /* GENERAL CLASSES */
 .general-content {
@@ -19,6 +19,9 @@
   align-items: center;
   background-color: #77B3D4;
   padding: 10px 50px;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
 }
 
 .image {
@@ -35,8 +38,41 @@
 }
 /* END OF TITLEBAR CSS */
 
-/* CARD CSS */
-.card-container {
+/*BOARD CSS */
+.board-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 20px;
+}
+/*END OF BOARD CSS */
+
+/*LIST CARD CSS */
+.list-card-container {
+  background-color: #EBECF0;
+  padding: 10px;
+  margin: 0 10px;
+  width: 272px;
+  border-radius: 4px;
+}
+
+.list-card-title {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.list-card-box {
+  min-height: 80px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+/*END OF LIST CARD CSS */
+
+/*BOARD CARD CSS */
+.board-card-container {
   border-radius: 4px;
   font-weight: bold;
   padding: 10px;
@@ -46,20 +82,20 @@
   margin: 16px;
 }
 
-.card-text {
+.board-color-default {
+  background-color: #b6e6fc;
+}
+
+.board-color-default:hover {
+  background-color: #b6fcf0;
+  cursor: pointer;
+}
+
+.board-card-text {
   overflow: hidden;
   text-overflow: ellipsis;
   line-clamp: 2;
   box-orient: vertical;
   color: white;
 }
-
-.color-default {
-  background-color: #b6e6fc;
-}
-
-.color-default:hover {
-  background-color: #b6fcf0;
-  cursor: pointer;
-}
-/* CARD CSS */
+/*END OF BOARD CARD CSS */

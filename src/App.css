@@ -60,6 +60,10 @@
   justify-content: flex-start;
   padding: 20px;
 }
+
+.board-box {
+  display: flex;
+}
 /*END OF BOARD CSS */
 
 /*LIST CSS */
@@ -76,7 +80,7 @@
 .list-title {
   font-weight: bold; 
   margin-bottom: 16px;
-  padding-left: 8px;
+  padding: 4px 8px;
 }
 
 .list-box {

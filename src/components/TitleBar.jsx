@@ -15,7 +15,7 @@ export const TitleBar = () => {
     }
     return (
         <div className="container">
-            <img className="image" src="boards.ico" alt="" onClick={handleBoards} />
+            <img className="image" src="../boards.ico" alt="Boards" onClick={handleBoards} />
             <div className="title" onClick={handleHome} >ReTrello</div>
         </div>
     );

@@ -1,7 +1,7 @@
 /* APP.JS */
 .content {
   display: flex;
-  padding: 10px 100px;
+  padding: 10px 80px;
 }
 /* END OF APP.JS */
 
@@ -15,21 +15,22 @@
 /* TITLEBAR CSS */
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   background-color: #77B3D4;
-  padding: 10px 0;
+  padding: 10px 50px;
 }
 
 .image {
-  height: 1.5rem;
+  height: 2rem;
   padding: 0 10px;
   cursor: pointer;
 }
 
 .title {
-  font-size: 22;
+  font-size: 30;
   color: white;
+  font-weight: bold;
   cursor: pointer;
 }
 /* END OF TITLEBAR CSS */
@@ -50,6 +51,7 @@
   text-overflow: ellipsis;
   line-clamp: 2;
   box-orient: vertical;
+  color: white;
 }
 
 .color-default {

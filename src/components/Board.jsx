@@ -1,31 +1,38 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import { DragDropContext, Droppable, } from 'react-beautiful-dnd';
 
-import { getBoard } from '../api/Boards';
-import { AuthContext } from '../providers/AuthContext';
+import { useGetBoard } from '../api/apiHooks/apiBoards';
 import { Routes } from '../constants/Routes';
-import { List } from '../components/List';
+import { List } from '../components/List/List';
+import BoardTitle from '../components/Board/BoardTitle';
 
 export const Board = () => {
+    const [board, setBoard] = useState();
+    const [selectedBoardId, setSelectedBoardId] = useState();
     const { pathname } = useLocation();
-    const { tokenHolder } = useContext(AuthContext);
+
     const history = useHistory();
 
-    const [board, setBoard] = useState();
+    const { data } = useGetBoard(selectedBoardId);
+
+    useEffect(() => {
+        if (data) {
+            setBoard(data);
+        }
+    }, [data]);
+
 
     useEffect(() => {
         const pathSplit = pathname.split(`${Routes.Board}/`);
-        if (pathSplit.length > 1 && !!pathSplit[1]) {
-            const boardId = pathSplit[1];
-            getBoard(boardId, tokenHolder).then(({ data }) => {
-                setBoard(data);
-            });
+        if (pathSplit.length === 0 || !pathSplit[1]) {
         } else {
-            history.push(Routes.Home);
+            const pathSplit = pathname.split(`${Routes.Board}/`);
+            const boardPathId = pathSplit[1];
+            setSelectedBoardId(boardPathId);
         }
-    }, []);
+    }, [history, pathname]);
 
     const handleDragEnd = (DropResult) => {
         const { reason, source, destination, draggableId, type } = DropResult;
@@ -82,23 +89,26 @@ export const Board = () => {
 
     return (
         <div className="board-container">
-            <DragDropContext onDragEnd={handleDragEnd}>
-                <Droppable droppableId="allLists" direction="horizontal" type="LIST">
-                    {provided => (
-                        <div className="board-box" ref={provided.innerRef} {...provided.droppableProps}>
-                            {board?.lists?.map((list, index) => (
-                                <List
-                                    index={index}
-                                    key={list.id}
-                                    list={list}
-                                    cards={board?.cards?.filter(card => card.idList === list.id)}
-                                />
-                            ))}
-                            {provided.placeholder}
-                        </div>
-                    )}
-                </Droppable>
-            </DragDropContext>
+            {board && <BoardTitle board={board} />}
+            <div>
+                <DragDropContext onDragEnd={handleDragEnd}>
+                    <Droppable droppableId="allLists" direction="horizontal" type="LIST">
+                        {provided => (
+                            <div className="board-box" ref={provided.innerRef} {...provided.droppableProps}>
+                                {board?.lists?.map((list, index) => (
+                                    <List
+                                        index={index}
+                                        key={list.id}
+                                        list={list}
+                                        cards={board?.cards?.filter(card => card.idList === list.id)}
+                                    />
+                                ))}
+                                {provided.placeholder}
+                            </div>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+            </div>
         </div>
     );
 };

@@ -1,28 +1,31 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { getAllBoards } from '../api/Boards';
-import { AuthContext } from '../providers/AuthContext';
-import { BoardCard } from '../components/BoardCard';
+import React, { useState } from 'react'
+import { useCreateBoard, useGetBoards } from '../api/apiHooks/apiBoards';
+import { BoardCard } from '../components/Board/BoardCard';
+import BoardNew from '../components/Board/BoardNew';
 
 export const Boards = () => {
-    const { tokenHolder } = useContext(AuthContext);
-    const [boards, setBoards] = useState([]);
-
-    useEffect(() => {
-        getAllBoards(tokenHolder).then(response => {
-            const { data } = response;
-            console.log(data);
-            setBoards(data);
-        });
-    }, [tokenHolder]);
+    const [showModal, setShowModal] = useState(false);
+    const [newBoardName, setNewBoardName] = useState();
+    const { data } = useGetBoards();
+    const { error, isFetching } = useCreateBoard(newBoardName);
 
     return (
-        <div>
-            <BoardCard newBoard />
-            {boards
-                .filter(board => !board.closed)
-                .map(board => (
-                    <BoardCard key={board.id} board={board} />
-                ))}
+        <div className={`all-boards-container ${showModal && 'backdrop'}`}>
+            <div style={{ flex: 1 }}>
+                {data
+                    ?.filter(board => !board.closed)
+                    .map(board => (
+                        <BoardCard key={board.id} board={board} />
+                    ))}
+                <BoardCard newBoard handleNewBoardClick={() => setShowModal(true)} />
+            </div>
+            {showModal && (
+                <BoardNew
+                    title="Create a new Board"
+                    onClose={() => setShowModal(false)}
+                    onSubmit={(name) => setNewBoardName(name)}
+                />
+            )}
         </div>
     );
 };

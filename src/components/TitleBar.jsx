@@ -14,9 +14,10 @@ export const TitleBar = () => {
         window.location.reload();
     }
     return (
-        <div className="container">
-            <img className="image" src="../boards.ico" alt="Boards" onClick={handleBoards} />
-            <div className="title" onClick={handleHome} >ReTrello</div>
+        <div className="titlebar-container">
+            <img className="titlebar-image" src="../home.png" alt="Boards" onClick={handleHome} />&nbsp;
+            <img className="titlebar-image" src="../boards.png" alt="Home" onClick={handleBoards} />
+            <div className="titlebar-title">Trello's Fratello</div>
         </div>
     );
 };

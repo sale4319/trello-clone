@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 import { ListCard } from './ListCard';
 
 export const List = ({ list, cards, index }) => {
-    const [cardsList, setCardsList] = useState([]);
-
-    useEffect(() => {
-        if (cards) {
-            setCardsList(cards);
-        } else {
-            setCardsList([]);
-        }
-    }, [cards]);
 
     return (
         <Draggable draggableId={list.id} index={index}>
@@ -29,12 +20,8 @@ export const List = ({ list, cards, index }) => {
                                 className="list-box"
                                 {...dropCardProvided.droppableProps}
                                 ref={dropCardProvided.innerRef}
-                                style={
-                                    dropCardSnapshot.isDraggingOver
-                                        ? { backgroundColor: '#D9DBE3' }
-                                        : { backgroundColor: 'inherit' }
-                                }>
-                                {cardsList?.map((card, index) => (
+                                style={dropCardSnapshot.isDraggingOver ? { backgroundColor: '#D9DBE3' } : {}}>
+                                {cards?.map((card, index) => (
                                     <Draggable draggableId={card.id} index={index} key={card.id}>
                                         {(dragProvided, dragSnapshot) => (
                                             <div
@@ -50,6 +37,7 @@ export const List = ({ list, cards, index }) => {
                             </div>
                         )}
                     </Droppable>
+                    <div className="list-add-new-card">+ Add another card</div>
                 </div>
             )}
         </Draggable>

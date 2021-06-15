@@ -1,8 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router';
-import { Routes } from '../constants/Routes';
+import { Routes } from '../../constants/Routes';
 
-export const BoardCard = ({ board, newBoard = false }) => {
+export const BoardCard = ({ board, newBoard = false, handleNewBoardClick }) => {
     const history = useHistory();
     const handleBoardClick = () => {
         if (board) {
@@ -13,11 +13,12 @@ export const BoardCard = ({ board, newBoard = false }) => {
     const boardName = board ? board.name : 'Create a new Board';
     return (
         <div
-        className={`board-card-container ${newBoard ? 'board-color-new' : 'board-color-default'}`}
-            onClick={handleBoardClick}>
+            className={`board-card-container ${newBoard ? 'board-card-color-new' : 'board-card-color-default'}`}
+            onClick={newBoard ? handleNewBoardClick : handleBoardClick}>
 
-            <div className="board-card-text" title={boardName}>
-                {boardName}
+            <div
+                className={`board-card-text ${newBoard && 'board-card-text-center'}`}
+                title={boardName}>
             </div>
         </div>
     );

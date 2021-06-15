@@ -10,14 +10,26 @@
   display: flex;
   justify-content: center;
 }
+/* END OF GENERAL CLASSES */
 
+/* DND */
 .dragging {
   transform: rotate(5deg);
 }
-/* END OF GENERAL CLASSES */
+
+.backdrop {
+  z-index: 1040;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.7;
+}
+/* END OF DND */
 
 /* TITLEBAR CSS */
-.container {
+.titlebar-container {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -28,12 +40,15 @@
   position: fixed;
 }
 
-.image {
+.titlebar-image {
+  float: left;
   height: 2rem;
   padding: 0 10px;
+  border: 2px solid white; 
+  border-radius: 7px;
 }
 
-.image:hover {
+.titlebar-image:hover {
     background-color: #c0ebf8;
     border-radius: 5px;
   cursor: pointer;
@@ -45,26 +60,7 @@
   font-weight: bold;
 }
 
-.title:hover {
-  background-color: #c0ebf8;
-  border-radius: 5px;
-  padding: 6px 0px 6px;
-  cursor: pointer;
-}
 /* END OF TITLEBAR CSS */
-
-/*BOARD CSS */
-.board-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 20px;
-}
-
-.board-box {
-  display: flex;
-}
-/*END OF BOARD CSS */
 
 /*LIST CSS */
 .list-container {
@@ -90,6 +86,24 @@
   padding: 4px;
   border-radius: 4px;
 }
+
+.list-add-new-card {
+  margin-top: 6px;
+  border: 1px solid #EBECF0;
+  padding: 4px;
+  color: #52626b;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.list-add-new-card:hover {
+  border: 1px solid grey;
+  color: #323b41;
+  font-weight: 400;
+  background-color: #f1f1fc;
+  cursor: pointer;
+}
 /*END OF LIST CSS */
 
 /*LIST CARD CSS */
@@ -106,6 +120,172 @@
 background-color: #F4F5F7;
 }
 /*END OF LIST CARD CSS */
+/*ALL BOARDS CSS */
+.all-boards-container{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  flex: 1;
+}
+/*END OF ALL BOARDS CSS */
+
+/*NEW BOARD CSS */
+.new-board-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-weight: 500;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-board-content {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  background-color: #EDF6FE;
+  padding: 10px;
+}
+
+.new-board-title {
+  padding: 10px;
+  text-align: center;
+}
+
+.new-board-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.new-board-input {
+  width: 100%;
+  padding: 8px 4px;
+}
+
+.new-board-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  padding: 10px;
+}
+
+.new-board-button {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 6px 10px;
+}
+.new-board-button-confirm-valid {
+  background-color: #59AC44;
+  color: white;
+
+}
+
+.new-board-button-confirm-valid:hover {
+  background-color: #60BD4E;
+  cursor: pointer;
+}
+
+.new-board-button-confirm-invalid {
+  background-color: #F4F5F7;
+  color: grey;
+  cursor: default;
+}
+.new-board-button-close:hover {
+      background-color: #F4F5F7;
+      cursor: pointer;
+}
+/*END OF NEW BOARD CSS */
+
+/*BOARD CSS */
+.board-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.board-box {
+  display: flex;
+}
+/*END OF BOARD CSS */
+
+/*BOARD TITLE CSS */
+.board-title-title {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  max-width: fit-content;
+  background-color: #213645;
+  color: white;
+  font-weight: bold;
+}
+
+.board-title-title:hover {
+  background-color: #3d5f81;
+  cursor: pointer;
+}
+
+.board-title-icons-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.board-title-edit {
+  margin-left: 10px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.board-title-delete {
+  margin-left: 20px;
+  font-weight: bold;
+  align-self: center;
+}
+
+.board-title-delete-button {
+  align-self: center;
+  margin-left: 20px;
+  color: #213645;
+}
+
+.board-title-delete-button:hover {
+  color: #3d5f81;
+  cursor: pointer;
+}
+
+
+.board-title-confirm-button {
+  margin-left: 20px;
+  color: #0e9d32;
+}
+
+.board-title-confirm-button:hover {
+  color: #2fc857;
+  cursor: pointer;
+}
+
+.board-title-cancel-button {
+  margin-left: 0;
+  color: #9d0e2a;
+}
+
+.board-title-cancel-button:hover {
+  color: #d25371;
+  cursor: pointer;
+}
+/*END OF BOARD TITLE CSS */
 
 /*BOARD CARD CSS */
 .board-card-container {
@@ -118,20 +298,21 @@ background-color: #F4F5F7;
   margin: 16px;
 }
 
-.board-color-default {
+
+.board-card-color-default {
   background-color: #b6e6fc;
 }
 
-.board-color-default:hover {
+.board-card-color-default:hover {
   background-color: #b6fcf0;
   cursor: pointer;
 }
 
-.board-color-new {
+.board-card-color-new {
   background-color: #dfedfd;
 }
 
-.board-color-new:hover {
+.board-card-color-new:hover {
   background-color: #b0c6e4;
   cursor: pointer;
 }
@@ -143,4 +324,9 @@ background-color: #F4F5F7;
   box-orient: vertical;
   color: white;
 }
+.board-card-text-center {
+  font-weight: 300;
+  text-align: center;
+  padding-top: 20px;
+}    
 /*END OF BOARD CARD CSS */

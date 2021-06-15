@@ -1,9 +1,16 @@
 /* APP.JS */
 .content {
   display: flex;
-  justify-content: center;
+  padding: 10px 100px;
 }
 /* END OF APP.JS */
+
+/* GENERAL CLASSES */
+.general-content {
+  display: flex;
+  justify-content: center;
+}
+/* GENERAL CLASSES */
 
 /* TITLEBAR CSS */
 .container {
@@ -17,10 +24,40 @@
 .image {
   height: 1.5rem;
   padding: 0 10px;
+  cursor: pointer;
 }
 
 .title {
   font-size: 22;
   color: white;
+  cursor: pointer;
 }
 /* END OF TITLEBAR CSS */
+
+/* CARD CSS */
+.card-container {
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px;
+  max-width: 200px;
+  min-height: 70px;
+  position: relative;
+  margin: 16px;
+}
+
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 2;
+  box-orient: vertical;
+}
+
+.color-default {
+  background-color: #b6e6fc;
+}
+
+.color-default:hover {
+  background-color: #b6fcf0;
+  cursor: pointer;
+}
+/* CARD CSS */

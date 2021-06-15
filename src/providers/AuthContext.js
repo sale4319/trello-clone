@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 const defaultValues = {
     tokenHolder: {
-        apiKey: '',
-        apiToken: '',
+        apiKey: '', //Removed the key from commit
+        apiToken: '', //Removed the token from commit
     },
     setTokenHolder: () => { },
     isAuthenticated: false,

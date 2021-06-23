@@ -292,4 +292,4 @@ const CardModal = ({ card, handleClose }) => {
     );
 };
 
-export default CardModal
+export default CardModal;

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react';
 
 import { useCreateBoard, useGetBoards } from '../api/apiHooks/apiBoards';
 import { BoardCard } from '../components/Board/BoardCard';

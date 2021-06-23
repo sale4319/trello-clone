@@ -3,9 +3,9 @@
 * It resembles the designs of the original app and it looks nice :heavy_check_mark:
 * Main view can be a list or a kanban board or something entirely different :heavy_check_mark:
 * Connect to Trello API :heavy_check_mark:
-* CRUD operations for: Boards :heavy_check_mark:, Lists :heavy_check_mark:, Cards :zap:, Comments :heavy_check_mark:
+* CRUD operations for: Boards :heavy_check_mark:, Lists :heavy_check_mark:, Cards :heavy_check_mark:, Comments :heavy_check_mark:
 * Moving cards between lists :heavy_check_mark:
-* Boards :heavy_check_mark:, Lists :zap:, and Cards :zap: should be deep-linkable, implement a url scheme :zap:
+* Should be deep-linkable: Boards :heavy_check_mark:, Lists :zap:, Cards :zap:
 
 ### Optional requrements
 * Moving lists on board :heavy_check_mark:

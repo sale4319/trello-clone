@@ -8,8 +8,10 @@ export const Home = () => {
     const history = useHistory();
 
     return (
-        <div className="board-card-container board-card-color-default board-card-text board-card-text-center">
-            {boards && <p onClick={() => history.push(Routes.Boards)} >You have {boards?.length} boards, click to check them out!</p>}
+        <div className="content">
+            <div className="board-card-container board-card-color-default board-card-text board-card-text-center">
+                {boards && <p onClick={() => history.push(Routes.Boards)} >You have {boards?.length} boards, click to check them out!</p>}
+            </div>
         </div>
-    )
-}
+    );
+};

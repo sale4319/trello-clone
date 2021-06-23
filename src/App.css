@@ -19,8 +19,8 @@
 .titlebar-container {
   display: flex;
   align-items: center;
-  background-color: #77B3D4;
-  padding: 10px 30px;
+  background-color: #57aed6;
+  padding: 10px 180px;
   width: 100%;
   z-index: 100;
   position: fixed;
@@ -41,12 +41,229 @@
 }
 
 .titlebar-title {
-  margin: auto;
+  margin-left: 650px;
   font-size: 30;
   color: white;
   font-weight: bold;
 }
 /* END OF TITLEBAR CSS */
+
+/*ALL BOARDS CSS */
+.all-boards-container{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  flex: 1;
+}
+
+.all-boards-box {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.all-boards-backdrop {
+  z-index: 50;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.7;
+}
+/*END OF ALL BOARDS CSS */
+
+/*BOARD CSS */
+.board-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 20px;
+}
+/*END OF BOARD CSS */
+
+/*BOARD TITLE CSS */
+.board-title-title {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  max-width: fit-content;
+  background-color: #345479;
+  color: white;
+  font-weight: bold;
+}
+
+.board-title-title:hover {
+  background-color: #6d8eb3;
+  cursor: pointer;
+}
+
+.board-title-icons-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.board-title-delete {
+  margin-left: 20px;
+  font-weight: bold;
+  align-self: center;
+}
+
+.board-title-delete-button {
+  align-self: center;
+  margin-left: 20px;
+  color: #345479;
+}
+
+.board-title-delete-button:hover {
+  color: #6d8eb3;
+  cursor: pointer;
+}
+
+
+.board-title-confirm-button {
+  margin-left: 20px;
+  color: #0e9d32;
+}
+
+.board-title-confirm-button:hover {
+  color: #2fc857;
+  cursor: pointer;
+}
+
+.board-title-cancel-button {
+  margin-left: 0;
+  color: #9d0e2a;
+}
+
+.board-title-cancel-button:hover {
+  color: #d25371;
+  cursor: pointer;
+}
+/*END OF BOARD TITLE CSS */
+
+/*BOARD NEW CSS */
+.new-board-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-weight: 500;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-board-content {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  background-color: #EDF6FE;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.new-board-title {
+  padding: 10px;
+  text-align: center;
+}
+
+.new-board-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.new-board-input {
+  width: 100%;
+  padding: 8px 4px;
+}
+
+.new-board-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  padding: 10px;
+}
+
+.new-board-button {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 6px 10px;
+}
+
+.new-board-button-confirm-valid {
+  background-color: #59AC44;
+  color: white;
+}
+
+.new-board-button-confirm-valid:hover {
+  background-color: #60BD4E;
+  cursor: pointer;
+}
+
+.new-board-button-confirm-invalid {
+  background-color: #F4F5F7;
+  color: grey;
+  cursor: default;
+}
+
+.new-board-button-close:hover {
+      background-color: #F4F5F7;
+      cursor: pointer;
+}
+/*END OF BOARD NEW CSS */
+
+/*BOARD CARD CSS */
+.board-card-container {
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px;
+  max-width: 200px;
+  min-width: 200px;
+  min-height: 70px;
+  position: relative;
+  margin: 16px;
+}
+
+.board-card-color-default {
+  background-color: #57aed6;
+}
+
+.board-card-color-default:hover {
+  background-color: #75f8e2;
+  cursor: pointer;
+}
+
+.board-card-color-new {
+  background-color: #a6cbf5;
+}
+
+.board-card-color-new:hover {
+  background-color: #8af7e4;
+  cursor: pointer;
+}
+
+.board-card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 2;
+  box-orient: vertical;
+  color: white;
+}
+
+.board-card-text-center {
+  font-weight: 300;
+  text-align: center;
+  padding-top: 20px;
+}    
+/*END OF BOARD CARD CSS */
 
 /*LIST CSS */
 .list-container {
@@ -89,6 +306,26 @@
 }
 /*END OF LIST CSS */
 
+/*LIST TITLE CSS */
+.list-title-container {
+  display: flex;
+  align-content: center;
+  padding: 8px 0;
+}
+
+.list-title-title {
+  flex: 1;
+  font-weight: bold;
+  padding: 4px 8px;
+}
+
+.list-title-icon-container {
+  flex: 0.15;
+  align-self: center;
+  cursor: pointer;
+}
+/*END OF LIST TITLE CSS */
+
 /*LIST NEW CSS */
 .list-new-container {
   display: flex;
@@ -109,26 +346,6 @@
   background-color: rgb(190, 190, 190);
 }
 /*END OF LIST NEW CSS */
-
-/*LIST TITLE CSS */
-.list-title-container {
-  display: flex;
-  align-content: center;
-  padding: 8px 0;
-}
-
-.list-title-title {
-  flex: 1;
-  font-weight: bold;
-  padding: 4px 8px;
-}
-
-.list-title-icon-container {
-  flex: 0.15;
-  align-self: center;
-  cursor: pointer;
-}
-/*END OF LIST TITLE CSS */
 
 /*CARD CSS */
 .card-container {
@@ -369,220 +586,3 @@
   font-style: inherit;
 }
 /* END OF CARD MODAL */
-
-/*ALL BOARDS CSS */
-.all-boards-container{
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-  flex: 1;
-}
-
-.all-boards-box {
-  display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
-}
-
-.all-boards-backdrop {
-  z-index: 50;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #000;
-  opacity: 0.7;
-}
-/*END OF ALL BOARDS CSS */
-
-/*NEW BOARD CSS */
-.new-board-container {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  font-weight: 500;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.new-board-content {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 500px;
-  background-color: #EDF6FE;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-.new-board-title {
-  padding: 10px;
-  text-align: center;
-}
-
-.new-board-body {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-}
-
-.new-board-input {
-  width: 100%;
-  padding: 8px 4px;
-}
-
-.new-board-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: center;
-  padding: 10px;
-}
-
-.new-board-button {
-  border: 1px solid black;
-  border-radius: 2px;
-  padding: 6px 10px;
-}
-
-.new-board-button-confirm-valid {
-  background-color: #59AC44;
-  color: white;
-}
-
-.new-board-button-confirm-valid:hover {
-  background-color: #60BD4E;
-  cursor: pointer;
-}
-
-.new-board-button-confirm-invalid {
-  background-color: #F4F5F7;
-  color: grey;
-  cursor: default;
-}
-
-.new-board-button-close:hover {
-      background-color: #F4F5F7;
-      cursor: pointer;
-}
-/*END OF NEW BOARD CSS */
-
-/*BOARD CSS */
-.board-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 20px;
-}
-/*END OF BOARD CSS */
-
-/*BOARD TITLE CSS */
-.board-title-title {
-  margin-left: 10px;
-  padding: 10px 20px;
-  border: 1px solid gray;
-  border-radius: 4px;
-  max-width: fit-content;
-  background-color: #345479;
-  color: white;
-  font-weight: bold;
-}
-
-.board-title-title:hover {
-  background-color: #6d8eb3;
-  cursor: pointer;
-}
-
-.board-title-icons-container {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
-}
-
-.board-title-delete {
-  margin-left: 20px;
-  font-weight: bold;
-  align-self: center;
-}
-
-.board-title-delete-button {
-  align-self: center;
-  margin-left: 20px;
-  color: #345479;
-}
-
-.board-title-delete-button:hover {
-  color: #6d8eb3;
-  cursor: pointer;
-}
-
-
-.board-title-confirm-button {
-  margin-left: 20px;
-  color: #0e9d32;
-}
-
-.board-title-confirm-button:hover {
-  color: #2fc857;
-  cursor: pointer;
-}
-
-.board-title-cancel-button {
-  margin-left: 0;
-  color: #9d0e2a;
-}
-
-.board-title-cancel-button:hover {
-  color: #d25371;
-  cursor: pointer;
-}
-/*END OF BOARD TITLE CSS */
-
-/*BOARD CARD CSS */
-.board-card-container {
-  border-radius: 4px;
-  font-weight: bold;
-  padding: 10px;
-  max-width: 200px;
-  min-width: 200px;
-  min-height: 70px;
-  position: relative;
-  margin: 16px;
-}
-
-.board-card-color-default {
-  background-color: #b6e6fc;
-}
-
-.board-card-color-default:hover {
-  background-color: #b6fcf0;
-  cursor: pointer;
-}
-
-.board-card-color-new {
-  background-color: #dfedfd;
-}
-
-.board-card-color-new:hover {
-  background-color: #b0c6e4;
-  cursor: pointer;
-}
-
-.board-card-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-clamp: 2;
-  box-orient: vertical;
-  color: white;
-}
-
-.board-card-text-center {
-  font-weight: 300;
-  text-align: center;
-  padding-top: 20px;
-}    
-/*END OF BOARD CARD CSS */

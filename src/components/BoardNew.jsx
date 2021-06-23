@@ -57,7 +57,7 @@ const BoardNew = (props) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default BoardNew;

@@ -104,4 +104,4 @@ const BoardTitle = ({ board }) => {
     );
 };
 
-export default BoardTitle
+export default BoardTitle;

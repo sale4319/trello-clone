@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const BoardNew = (props) => {
+const BoardModal = (props) => {
     const { onSubmit, onClose, title } = props;
 
     const [boardName, setBoardName] = useState('');
@@ -22,14 +22,14 @@ const BoardNew = (props) => {
     };
 
     return (
-        <div className="new-board-container">
-            <div className="new-board-content">
-                <div className="new-board-title">
+        <div className="board-modal-container">
+            <div className="board-modal-content">
+                <div className="board-modal-title">
                     <div>{title}</div>
                 </div>
-                <div className="new-board-body">
+                <div className="board-modal-body">
                     <input
-                        className="new-board-input"
+                        className="board-modal-input"
                         placeholder="Board name"
                         value={boardName}
                         onChange={event => setBoardName(event.target.value)}
@@ -37,11 +37,11 @@ const BoardNew = (props) => {
                     />
                 </div>
 
-                <div className="new-board-footer">
+                <div className="board-modal-footer">
                     <div
                         className={
-                            `new-board-button
-                            ${nameValid ? 'new-board-button-confirm-valid' : 'new-board-button-confirm-invalid'}`
+                            `board-modal-button
+                            ${nameValid ? 'board-modal-button-confirm-valid' : 'board-modal-button-confirm-invalid'}`
                         }
                         onClick={() => {
                             if (nameValid) {
@@ -51,7 +51,7 @@ const BoardNew = (props) => {
                         }}>
                         Confirm
                     </div>
-                    <div className="new-board-button new-board-button-close" onClick={onClose}>
+                    <div className="board-modal-button board-modal-button-close" onClick={onClose}>
                         Close
                     </div>
                 </div>
@@ -60,4 +60,4 @@ const BoardNew = (props) => {
     );
 };
 
-export default BoardNew;
+export default BoardModal;

@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react';
 
 import { useCreateBoard, useGetBoards } from '../api/apiHooks/apiBoards';
 import { BoardCard } from '../components/Board/BoardCard';
-import BoardNew from '../components/Board/BoardNew';
-import { BoardContext } from '../providers/';
+import BoardModal from '../components/Board/BoardModal';
+import { BoardContext } from '../providers';
 
-export const Boards = () => {
+export const BoardsPage = () => {
     const [showNewBoard, setShowNewBoard] = useState(false);
     const [submitNewBoardName, setSubmitNewBoardName] = useState();
     useGetBoards();
@@ -13,8 +13,8 @@ export const Boards = () => {
     useCreateBoard(submitNewBoardName);
 
     return (
-        <div className={`all-boards-container ${showNewBoard && 'all-boards-backdrop'}`}>
-            <div className="all-boards-box">
+        <div className={`boards-page-container ${showNewBoard && 'boards-page-backdrop'}`}>
+            <div className="boards-page-box">
                 {boards
                     ?.filter(board => !board.closed)
                     .map(board => (
@@ -23,7 +23,7 @@ export const Boards = () => {
                 <BoardCard newBoard handleNewBoardClick={() => setShowNewBoard(true)} />
             </div>
             {showNewBoard && (
-                <BoardNew
+                <BoardModal
                     title="Create a new Board"
                     onClose={() => setShowNewBoard(false)}
                     onSubmit={(name) => setSubmitNewBoardName(name)}

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { useGetBoards } from '../api/apiHooks/apiBoards';
 import { Routes } from '../constants/Routes';
 
-export const Home = () => {
+export const HomePage = () => {
     const { data: boards } = useGetBoards();
     const history = useHistory();
 

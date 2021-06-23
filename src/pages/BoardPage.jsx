@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DragDropContext, Droppable, } from 'react-beautiful-dnd';
 
-import { BoardContext, CardModalContext } from '../providers/';
+import { BoardContext, CardModalContext } from '../providers';
 import { List } from '../components/List/List';
 import BoardTitle from '../components/Board/BoardTitle';
 import ListNew from '../components/List/ListNew';
@@ -11,7 +11,7 @@ import { useGetBoard } from '../api/apiHooks/apiBoards';
 import { useUpdateListPosition } from '../api/apiHooks/apiLists';
 import { useUpdateCardPosition } from '../api/apiHooks/apiCards';
 
-export const Board = () => {
+export const BoardPage = () => {
     const [selectedBoardId, setSelectedBoardId] = useState();
     const { selectedBoard: board, setSelectedBoard } = useContext(BoardContext); //, setSelectedListId
     const { showModal, setShowModal, selectedCard, setSelectedCard } = useContext(CardModalContext);
@@ -177,7 +177,7 @@ export const Board = () => {
     };
 
     return (
-        <div className="board-container">
+        <div className="board-page-container">
             {board && <BoardTitle board={board} />}
             <div className="general-container">
                 <DragDropContext onDragEnd={handleDragEnd}>

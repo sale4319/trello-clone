@@ -52,21 +52,21 @@
 }
 /* END OF TITLEBAR CSS */
 
-/*ALL BOARDS CSS */
-.all-boards-container{
+/*BOARDS PAGE CSS */
+.boards-page-container{
   display: flex;
   justify-content: center;
   padding-top: 10px;
   flex: 1;
 }
 
-.all-boards-box {
+.boards-page-box {
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
 }
 
-.all-boards-backdrop {
+.boards-page-backdrop {
   z-index: 50;
   top: 0;
   bottom: 0;
@@ -75,10 +75,10 @@
   background-color: #000;
   opacity: 0.7;
 }
-/*END OF ALL BOARDS CSS */
+/*END OF BOARDS PAGE CSS */
 
-/*BOARD CSS */
-.board-container {
+/*BOARD PAGE CSS */
+.board-page-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -148,8 +148,8 @@
 }
 /*END OF BOARD TITLE CSS */
 
-/*BOARD NEW CSS */
-.new-board-container {
+/*BOARD MODAL CSS */
+.board-modal-container {
   position: fixed;
   left: 0;
   top: 0;
@@ -162,7 +162,7 @@
   justify-content: center;
 }
 
-.new-board-content {
+.board-modal-content {
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -172,23 +172,23 @@
   border-radius: 4px;
 }
 
-.new-board-title {
+.board-modal-title {
   padding: 10px;
   text-align: center;
 }
 
-.new-board-body {
+.board-modal-body {
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
 
-.new-board-input {
+.board-modal-input {
   width: 100%;
   padding: 8px 4px;
 }
 
-.new-board-footer {
+.board-modal-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -196,33 +196,33 @@
   padding: 10px;
 }
 
-.new-board-button {
+.board-modal-button {
   border: 1px solid black;
   border-radius: 2px;
   padding: 6px 10px;
 }
 
-.new-board-button-confirm-valid {
+.board-modal-button-confirm-valid {
   background-color: #59AC44;
   color: white;
 }
 
-.new-board-button-confirm-valid:hover {
+.board-modal-button-confirm-valid:hover {
   background-color: #60BD4E;
   cursor: pointer;
 }
 
-.new-board-button-confirm-invalid {
+.board-modal-button-confirm-invalid {
   background-color: #F4F5F7;
   color: grey;
   cursor: default;
 }
 
-.new-board-button-close:hover {
+.board-modal-button-close:hover {
       background-color: #F4F5F7;
       cursor: pointer;
 }
-/*END OF BOARD NEW CSS */
+/*END OF BOARD MODAL CSS */
 
 /*BOARD CARD CSS */
 .board-card-container {

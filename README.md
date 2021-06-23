@@ -5,7 +5,12 @@
 * Connect to Trello API :heavy_check_mark:
 * CRUD operations for: Boards :heavy_check_mark:, Lists :heavy_check_mark:, Cards :heavy_check_mark:, Comments :heavy_check_mark:
 * Moving cards between lists :heavy_check_mark:
-* Should be deep-linkable: Boards :heavy_check_mark:, Lists, Cards :heavy_check_mark:
+* Should be deep-linkable: Boards :heavy_check_mark:, Lists :heavy_check_mark:, Cards :heavy_check_mark:
+* URL scheme:heavy_check_mark: :
+    * Boards: /boards
+    * Board: /board/{boardId}
+    * Lists: /board/{boardId}/{listId}, are always on board and there is no visible change when deep linking so I disconnected it, I left dead code as example
+    * Cards: deepLinkListsConnected ? /board/{boardId}/{listId}/{cardId} : /board/{boardId}/{cardId}
 
 ### Optional requrements
 * Moving lists on board :heavy_check_mark:

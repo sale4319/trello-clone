@@ -13,7 +13,7 @@ import { useUpdateCardPosition } from '../api/apiHooks/apiCards';
 
 export const Board = () => {
     const [selectedBoardId, setSelectedBoardId] = useState();
-    const { selectedBoard: board, setSelectedBoard } = useContext(BoardContext);
+    const { selectedBoard: board, setSelectedBoard } = useContext(BoardContext); //, setSelectedListId
     const { showModal, setShowModal, selectedCard, setSelectedCard } = useContext(CardModalContext);
 
     const [movedList, setMovedList] = useState({ listId: '', newPosition: 0 });
@@ -29,13 +29,23 @@ export const Board = () => {
 
     const { data } = useGetBoard(selectedBoardId);
 
-    let { cardId, boardId } = useParams();
+    let { cardId, boardId } = useParams(); //,listId
 
     useEffect(() => {
         console.log('Get ids for deep linking', board);
         if (boardId) {
             setSelectedBoardId(boardId);
         }
+
+        // **Can be used if deep link to list is necessary**
+        // if (listId && board) {
+        //     console.log('You deep linked to list', listId);
+        //     board.lists.forEach(list => {
+        //         if (list.id === listId) {
+        //             setSelectedListId(list);
+        //         }
+        //     })
+        // }
 
         if (cardId && board) {
             board.cards.forEach(card => {

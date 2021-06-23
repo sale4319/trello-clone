@@ -9,7 +9,6 @@ export const Card = ({ card }) => {
     const [showEditButton, setShowEditButton] = useState(false);
     const [editing, setEditing] = useState(false);
 
-
     return (
         <>
             <div

@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   background-color: #77B3D4;
-  padding: 10px 50px;
+  padding: 10px 30px;
   width: 100%;
   z-index: 10;
   position: fixed;
@@ -181,10 +181,10 @@
   border-radius: 2px;
   padding: 6px 10px;
 }
+
 .new-board-button-confirm-valid {
   background-color: #59AC44;
   color: white;
-
 }
 
 .new-board-button-confirm-valid:hover {
@@ -197,6 +197,7 @@
   color: grey;
   cursor: default;
 }
+
 .new-board-button-close:hover {
       background-color: #F4F5F7;
       cursor: pointer;

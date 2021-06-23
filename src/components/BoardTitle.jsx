@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import AutosizeInput from 'react-input-autosize';
 import { RiDeleteBin6Fill, RiCheckboxCircleFill, RiCloseCircleFill } from 'react-icons/ri';
 
-import { useDeleteBoard } from '../../api/apiHooks/apiBoards';
+import { useDeleteBoard, useEditBoardName } from '../../api/apiHooks/apiBoards';
 import { Routes } from '../../constants/Routes';
 
 const BoardTitle = ({ board }) => {
@@ -12,15 +12,20 @@ const BoardTitle = ({ board }) => {
 
     const [newTitle, setNewTitle] = useState(board.name);
     const [deleteBoardId, setDeleteBoardId] = useState();
-    const { isSuccess, isFetching } = useDeleteBoard(deleteBoardId);
+    const { isSuccess: isSuccessDelete, isFetching: isFetchingDelete } = useDeleteBoard(deleteBoardId);
+    const { isSuccess: isSuccessEdit, isFetching: isFetchingEdit } = useEditBoardName(
+        board.id,
+        board.name,
+        newTitle,
+        editingTitle,
+    );
     const history = useHistory();
 
     useEffect(() => {
-        if (isSuccess && !isFetching) {
+        if (isSuccessDelete && !isFetchingDelete) {
             history.push(Routes.Boards);
         }
-        console.log({ deleteBoardId });
-    }, [isSuccess, isFetching, deleteBoardId, history]);
+    }, [isSuccessDelete, isFetchingDelete]);
 
     useEffect(() => {
         if (board.name) {
@@ -33,6 +38,7 @@ const BoardTitle = ({ board }) => {
     };
 
     const handleEnterKeyPress = (event) => {
+        setEditingTitle(true);
         if (event.key === 'Enter') {
             setEditingTitle(false);
         }
@@ -66,7 +72,7 @@ const BoardTitle = ({ board }) => {
             ) : (
                 <div className="board-title-icons-container">
                     <div className="board-title-title" onClick={() => setEditingTitle(true)}>
-                        {board.name}
+                        {newTitle}
                     </div>
                     <RiDeleteBin6Fill
                         size="40"
@@ -83,7 +89,7 @@ const BoardTitle = ({ board }) => {
                             <RiCheckboxCircleFill
                                 size="40"
                                 className="board-title-confirm-button"
-                                onClick={handleDeleteBoard}
+                                onClick={() => setDeleteBoardId(handleDeleteBoard)}
                             />
                             <RiCloseCircleFill
                                 size="40"

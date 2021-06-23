@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 const defaultValues = {
     tokenHolder: {
@@ -10,7 +10,7 @@ const defaultValues = {
     clearTokens: () => { },
 };
 
-export const AuthContext = React.createContext(defaultValues);
+export const AuthContext = createContext(defaultValues);
 
 export const AuthProvider = ({ children }) => {
     const [tokenHolder, setTokenHolder] = useState(defaultValues.tokenHolder);

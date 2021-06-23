@@ -38,7 +38,7 @@ const BoardNew = (props) => {
                         onClick={() => {
                             if (nameValid) {
                                 onSubmit(boardName);
-                                onClose(window.location.reload()); //Fix this, not a good practice!
+                                onClose(window.location.reload()); //I should fix this, not a good practice!
                             }
                         }}>
                         Confirm
@@ -52,4 +52,4 @@ const BoardNew = (props) => {
     )
 }
 
-export default BoardNew
+export default BoardNew;

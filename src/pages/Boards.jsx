@@ -8,21 +8,9 @@ import { BoardContext } from '../providers/';
 export const Boards = () => {
     const [showNewBoard, setShowNewBoard] = useState(false);
     const [submitNewBoardName, setSubmitNewBoardName] = useState();
-    const { reFetchBoards } = useGetBoards();
-    const { boards, setSelectedBoard } = useContext(BoardContext);
-    const { isSuccess } = useCreateBoard(submitNewBoardName);
-
-
-    useEffect(() => {
-        setSelectedBoard(undefined);
-        return () => setSubmitNewBoardName('');
-    }, []);
-
-    useEffect(() => {
-        if (isSuccess) {
-            reFetchBoards();
-        }
-    }, [isSuccess]);
+    useGetBoards();
+    const { boards } = useContext(BoardContext);
+    useCreateBoard(submitNewBoardName);
 
     return (
         <div className={`all-boards-container ${showNewBoard && 'all-boards-backdrop'}`}>

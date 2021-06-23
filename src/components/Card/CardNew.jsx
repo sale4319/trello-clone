@@ -38,7 +38,7 @@ const CardNew = ({ show, listId, handleClose }) => {
             {show && (
                 <textarea
                     value={newCard}
-                    className="card-new-text-area"
+                    className="card-text-area"
                     onChange={event => setNewCard(event.target.value)}
                     autoFocus
                     onBlur={handleNewCardBlur}

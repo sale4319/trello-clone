@@ -7,7 +7,7 @@ import { Home } from './pages/Home';
 import { Boards } from './pages/Boards';
 import { Board } from './pages/Board';
 import { Routes } from './constants/Routes';
-import { AuthProvider, BoardProvider } from './providers/';
+import { AuthProvider, BoardProvider, CardModalProvider } from './providers/';
 import './App.css';
 
 
@@ -16,18 +16,20 @@ const App = () => {
     <>
       <Router>
         <AuthProvider>
-          <BoardProvider>
-            <div>
-              <TitleBar />
-            </div>
-            <div className="content">
-              <Switch>
-                <PrivateRoute path={Routes.Boards} component={Boards} exact={true} />
-                <PrivateRoute component={Board} path={Routes.Board} />
-                <Route path={Routes.Home} component={Home} />
-              </Switch>
-            </div>
-          </BoardProvider>
+          <CardModalProvider>
+            <BoardProvider>
+              <div>
+                <TitleBar />
+              </div>
+              <div className="content">
+                <Switch>
+                  <PrivateRoute path={Routes.Boards} component={Boards} exact={true} />
+                  <PrivateRoute component={Board} path={Routes.Board} />
+                  <Route path={Routes.Home} component={Home} />
+                </Switch>
+              </div>
+            </BoardProvider>
+          </CardModalProvider>
         </AuthProvider>
       </Router>
     </>

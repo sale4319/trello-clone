@@ -10,9 +10,8 @@
   display: flex;
 }
 
-.general-content {
-  display: flex;
-  justify-content: center;
+.flex-content-end {
+  justify-self: flex-end;
 }
 /* END OF GENERAL CLASSES */
 
@@ -133,26 +132,47 @@
 
 /*CARD CSS */
 .card-container {
-      min-height: 10px;
-      background-color: white;
-      border-radius: 4px;
-      padding: 10px;
-      margin-bottom: 8px;
-      cursor: pointer;
+  background-color: white;
+  border-radius: 4px;
+  padding: 2px 2px 2px 6px;
+  margin-bottom: 8px;
 }
 
 .card-container:hover {
   background-color: #F4F5F7;
+  cursor: pointer;
 }
-.card-dragging {
-  transform: rotate(5deg);
-}
-/*END OF CARD CSS */
 
-/*CARD NEW CSS */
-.card-new-text-area { 
+.card-name {
+  flex: 1;
+  min-height: 10px;
+  align-self: center;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.card-edit-button {
+  align-self: center;
+  padding: 6px;
+  cursor: pointer;
+  visibility: hidden;
+  background-color: #b6fcf0;
+}
+.card-button-visible {
+  visibility: visible;
+}
+
+.card-button-visible:hover {
+  background-color: #b6fcf0;
+} 
+
+.card-button-invisible {
+  visibility: hidden;
+}
+
+.card-text-area { 
   flex-direction: column;
-  padding: 8px;
+  padding: 10px;
   font-family: inherit;
   border: 0.5px solid #ccc;
   background-color: #f9f9f9;
@@ -160,7 +180,195 @@
   border-radius: 4px;
   font-style: inherit;
 }
-/*END OF CARD NEW CSS */
+/*END OF CARD CSS */
+
+/* CARD MODAL */
+.card-modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-weight: 500;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.card-modal-content {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 40%;
+  max-width: 80%;
+  background-color: rgb(255,255,255);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.card-modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.card-modal-title {
+  width: 100%;
+  padding-top: 10px;
+  font: bold;
+  font-size: 28px;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  margin: 10px;
+}
+
+.card-modal-icon {
+  font-size: 28px;
+  padding-top: 1px;
+  padding-right: 18px;
+}
+
+.card-modal-subtitle {
+  font-size: 22px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card-modal-divider {
+  height: 35px;
+}
+
+.card-modal-input {
+  width: 80%;
+  max-width: 90%;
+  margin-left: 50px;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  border: 0.5px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 13px;
+  word-break: break-word;
+  height: 50px;
+  resize: none;
+}
+.card-modal-buttons-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-modal-description-save-button {
+  width: 37px;
+  font-size: 14px;
+  color: white;
+}
+
+.card-modal-description-save-button:hover {
+  background-color: #60BD4E;
+  cursor: pointer;
+}
+
+.card-modal-description-close-button {
+  margin-left: 10px;
+  margin-top: 5px;
+  border-radius: 2px;
+  padding: 3px 10px;
+  font-size: 16;
+  color: black;
+}
+
+.card-modal-description-close-button:hover {
+  color: #60BD4E;
+  cursor: pointer;
+} 
+
+.card-modal-activity-input {
+  width: 80%;
+  max-width: 90%;
+  margin-left: 50px;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  border: 0.5px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 13px;
+  word-break: break-word;
+  resize: none;
+}
+
+.card-modal-activity-button {
+  margin-left: 50px;
+  margin-top: 5px;
+}
+.card-modal-footer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: flex-end;
+}
+
+.card-modal-button {
+  border: 1px solid #59AC44;
+  border-radius: 2px;
+  padding: 6px 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 16;
+  background: #59AC44;
+}
+
+.card-modal-button-close {
+  border-color: gray;
+  color: black;
+  background-color: rgba(9,30,66,.08);
+}
+
+.card-modal-button-close:hover {
+  background-color: #F4F5F7;
+
+}
+
+.card-modal-delete-comment-icon:hover {
+  color: #676769;
+  cursor: pointer;
+}
+
+.card-modal-edit-comment-input {
+  padding: 4px 10px;
+  max-width: fit-content;
+  min-width: 400px;
+}
+
+.card-modal-comment-content {
+  margin-left: 50px;
+  min-width: 400px;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  word-break: break-word;
+  resize: none;
+}
+
+.card-modal-comment-content-button {
+  margin-left: auto;
+}
+
+.card-modal-editing-input {
+  flex-direction: column;
+  margin-left: 50px;
+  padding: 10px;
+  font-family: inherit;
+  border: 0.5px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  border-radius: 4px;
+  font-style: inherit;
+}
+/* END OF CARD MODAL */
 
 /*ALL BOARDS CSS */
 .all-boards-container{
@@ -169,6 +377,7 @@
   padding-top: 10px;
   flex: 1;
 }
+
 .all-boards-box {
   display: flex;
   flex-direction: row;
@@ -269,10 +478,6 @@
   justify-content: flex-start;
   padding: 20px;
 }
-
-.board-box {
-  display: flex;
-}
 /*END OF BOARD CSS */
 
 /*BOARD TITLE CSS */
@@ -296,15 +501,6 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
-}
-
-.board-title-edit {
-  margin-left: 10px;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  border: 1px solid gray;
-  border-radius: 4px;
-  font-weight: bold;
 }
 
 .board-title-delete {

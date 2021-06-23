@@ -3,11 +3,12 @@ import { useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import { DragDropContext, Droppable, } from 'react-beautiful-dnd';
 
-import { BoardContext } from '../providers/';
+import { BoardContext, CardModalContext } from '../providers/';
 import { Routes } from '../constants/Routes';
 import { List } from '../components/List/List';
 import BoardTitle from '../components/Board/BoardTitle';
 import ListNew from '../components/List/ListNew';
+import CardModal from '../components/Card/CardModal';
 import { useGetBoard } from '../api/apiHooks/apiBoards';
 import { useUpdateListPosition } from '../api/apiHooks/apiLists';
 import { useUpdateCardPosition } from '../api/apiHooks/apiCards';
@@ -19,6 +20,7 @@ export const Board = () => {
     const { pathname } = useLocation();
     const history = useHistory();
     const { selectedBoard: board, setSelectedBoard } = useContext(BoardContext);
+    const { showModal, setShowModal, selectedCard } = useContext(CardModalContext);
 
     const [movedList, setMovedList] = useState({ listId: '', newPosition: 0 });
     useUpdateListPosition(movedList);
@@ -167,9 +169,9 @@ export const Board = () => {
             {board && <BoardTitle board={board} />}
             <div className="general-container">
                 <DragDropContext onDragEnd={handleDragEnd}>
-                    <Droppable droppableId="allLists" direction="horizontal" type="LIST">
+                    <Droppable droppableId="allLists" direction="horizontal" type="LIST" isDropDisabled={showModal}>
                         {provided => (
-                            <div className="board-box" ref={provided.innerRef} {...provided.droppableProps}>
+                            <div className="general-container" ref={provided.innerRef} {...provided.droppableProps}>
                                 {board?.lists.map((list, index) => (
                                     <List
                                         index={index}
@@ -183,6 +185,7 @@ export const Board = () => {
                         )}
                     </Droppable>
                 </DragDropContext>
+                {showModal && selectedCard && <CardModal card={selectedCard} handleClose={() => setShowModal(false)} />}
                 {board && <ListNew />}
             </div>
         </div>

@@ -11,10 +11,11 @@ export const useGetBoards = () => {
     const { pathname } = useLocation();
     const { data, setData, isFetching, setIsFetching, error, setError, isSuccess, setIsSuccess } = useApiResponse();
 
-    const reFetchBoards = () => {
-        console.log('calling useGetBoards()');
-        setIsFetching(true);
+    useEffect(() => {
 
+        console.log('calling useGetBoards');
+        setIsFetching(true);
+        setIsSuccess(false);
         getAllBoards(tokenHolder)
             .then(({ data }) => {
                 setIsSuccess(true);
@@ -23,12 +24,8 @@ export const useGetBoards = () => {
             })
             .catch(({ response }) => setError(response?.data))
             .finally(() => setIsFetching(false));
-    }
-
-    useEffect(() => {
-        reFetchBoards();
     }, [pathname]);
-    return { data, isFetching, reFetchBoards, error, isSuccess };
+    return { data, isFetching, error, isSuccess };
 };
 
 export const useGetBoard = (id) => {
@@ -43,11 +40,13 @@ export const useGetBoard = (id) => {
         isSuccess,
         setIsSuccess,
     } = useApiResponse();
+
     useEffect(() => {
         if (!id) return;
-        console.log(`calling useGetBoard(${id})`);
-        setIsFetching(true);
 
+        console.log(`calling useGetBoard`);
+        setIsFetching(true);
+        setIsSuccess(false);
         getBoard(id, tokenHolder)
             .then(({ data }) => {
                 setData(data);
@@ -61,32 +60,45 @@ export const useGetBoard = (id) => {
 
 export const useCreateBoard = (name) => {
     const { tokenHolder } = useContext(AuthContext);
-    const { isFetching, setIsFetching, error, setError, isSuccess, setIsSuccess } = useApiResponse();
+    const { setBoards, boards } = useContext(BoardContext);
+    const { isFetching, data, setData, setIsFetching, error, setError, isSuccess, setIsSuccess } = useApiResponse();
 
     useEffect(() => {
         if (!name) return;
-        console.log(`calling useCreateBoard(${name})`);
+
+        console.log(`calling useCreateBoard`);
         setIsFetching(true);
+        setIsSuccess(false);
         createBoard(name, tokenHolder)
-            .then(() => setIsSuccess(true))
+            .then(({ data: newBoard }) => {
+                setIsSuccess(true);
+                setData(newBoard);
+                setBoards([...boards, newBoard]);
+            })
             .catch(({ response }) => {
                 setError(response?.data);
             })
             .finally(() => setIsFetching(false));
     }, [name]);
-    return { isFetching, error, isSuccess };
+    return { data, isFetching, error, isSuccess };
 };
 
 export const useDeleteBoard = (id) => {
     const { tokenHolder } = useContext(AuthContext);
+    const { setBoards, boards } = useContext(BoardContext);
     const { isFetching, setIsFetching, setError, isSuccess, setIsSuccess } = useApiResponse();
 
     useEffect(() => {
         if (!id) return;
-        console.log(`calling useDeleteBoard(${id})`);
+
+        console.log(`calling useDeleteBoard`);
         setIsFetching(true);
+        setIsSuccess(false);
         deleteBoard(id, tokenHolder)
-            .then(() => setIsSuccess(true))
+            .then(() => {
+                setIsSuccess(true);
+                setBoards(boards.filter(board => board.id !== id));
+            })
             .catch(({ response }) => {
                 setError(response?.data);
             })
@@ -102,7 +114,9 @@ export const useEditBoardName = (id, newName) => {
     useEffect(() => {
         if (!id || !newName) return;
 
+        console.log(`calling useEditBoardName`);
         setIsFetching(true);
+        setIsSuccess(false);
         editBoardName(id, newName, tokenHolder)
             .then(() => setIsSuccess(true))
             .catch(({ response }) => setError(response?.data))

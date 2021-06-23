@@ -13,6 +13,7 @@ export const useUpdateListPosition = (movedList) => {
 
     useEffect(() => {
         if (!id || position === 0) return;
+
         console.log(`calling useUpdateListPosition`);
         setIsFetching(true);
         setIsSuccess(false);
@@ -44,6 +45,7 @@ export const useCreateList = (name) => {
         if (!name) return;
 
         if (selectedBoard) {
+
             console.log(`calling useCreateList(${name})`);
             setIsFetching(true);
             setIsSuccess(false);
@@ -71,8 +73,10 @@ export const useEditList = (id, name) => {
 
     useEffect(() => {
         if (!id || !name) return;
+
         console.log(`calling useEditList`);
         setIsFetching(true);
+        setIsSuccess(false);
         editListName(id, name, tokenHolder)
             .then(({ data }) => {
                 setIsSuccess(true);
@@ -96,8 +100,10 @@ export const useCloseList = (id) => {
 
     useEffect(() => {
         if (!id) return;
-        console.log(`calling useCloseList(${id})`);
+
+        console.log(`calling useCloseList`);
         setIsFetching(true);
+        setIsSuccess(false);
         closeList(id, tokenHolder)
             .then(() => {
                 if (selectedBoard) {

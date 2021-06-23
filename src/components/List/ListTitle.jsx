@@ -11,6 +11,13 @@ const ListTitle = ({ name, listId }) => {
     const [submitNewFormName, setSubmitNewFormName] = useState('');
     useEditList(listId, submitNewFormName);
 
+    useEffect(() => {
+        return () => {
+            setSubmitNewFormName('');
+            setDeleteListId('');
+        };
+    }, []);
+
     const handleCloseList = () => {
         setDeleteListId(listId);
         return;

@@ -46,7 +46,7 @@ export const useCreateList = (name) => {
 
         if (selectedBoard) {
 
-            console.log(`calling useCreateList(${name})`);
+            console.log(`calling useCreateList`);
             setIsFetching(true);
             setIsSuccess(false);
             createList(selectedBoard.id, name, tokenHolder)

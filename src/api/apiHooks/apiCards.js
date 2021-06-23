@@ -68,6 +68,7 @@ export const useUpdateCardPosition = (movedCard) => {
 
     useEffect(() => {
         if (newPosition === 0 || !id) return;
+
         console.log(`calling useUpdateCardPosition`);
         setIsFetching(true);
         setIsSuccess(false);
@@ -212,9 +213,9 @@ export const useLoadCardComments = (cardId) => {
     useEffect(() => {
         if (!cardId) return;
 
+        console.log(`calling useGetCardComments`);
         setIsFetching(true);
         setIsSuccess(false);
-        console.log(`calling useGetCardComments`);
         getCardComments(cardId, tokenHolder)
             .then(({ data }) => {
                 console.log('here', data);
@@ -236,9 +237,9 @@ export const useEditCardComment = (cardId, commentId, newValue) => {
     useEffect(() => {
         if (!cardId || !commentId || !newValue) return;
 
+        console.log(`calling useEditCardComment`);
         setIsFetching(true);
         setIsSuccess(false);
-        console.log(`calling useEditCardComment`);
         updateCardComment(cardId, commentId, newValue, tokenHolder)
             .then(({ data }) => {
                 setIsSuccess(true);

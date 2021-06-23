@@ -20,14 +20,17 @@
   display: flex;
   align-items: center;
   background-color: #57aed6;
-  padding: 10px 180px;
+  padding: 10px;
   width: 100%;
   z-index: 100;
   position: fixed;
 }
 
+.titlebar-image-container {
+  padding-left: 180px;
+}
+
 .titlebar-image {
-  float: left;
   height: 2rem;
   padding: 0 10px;
   border: 2px solid white; 
@@ -36,12 +39,13 @@
 
 .titlebar-image:hover {
   background-color: #c0ebf8;
-  border-radius: 5px;
   cursor: pointer;
 }
 
 .titlebar-title {
-  margin-left: 650px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
   font-size: 30;
   color: white;
   font-weight: bold;

@@ -32,7 +32,7 @@ export const Board = () => {
     let { cardId, boardId } = useParams();
 
     useEffect(() => {
-        console.log('Board object', board);
+        console.log('Get ids for deep linking', board);
         if (boardId) {
             setSelectedBoardId(boardId);
         }

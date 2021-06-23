@@ -5,14 +5,14 @@
 * Connect to Trello API :heavy_check_mark:
 * CRUD operations for: Boards :heavy_check_mark:, Lists :heavy_check_mark:, Cards :heavy_check_mark:, Comments :heavy_check_mark:
 * Moving cards between lists :heavy_check_mark:
-* Should be deep-linkable: Boards :heavy_check_mark:, Lists :zap:, Cards :zap:
+* Should be deep-linkable: Boards :heavy_check_mark:, Lists, Cards :heavy_check_mark:
 
 ### Optional requrements
 * Moving lists on board :heavy_check_mark:
 * Cards and lists persist new position :heavy_check_mark:
 * Centralized state management :x:
 * Unit tests :x:
-* Deep-link to comment
+* Deep-link to comment :x:
 * User page :x:
 * Sidebar :x:
 * Your wildest dreams :boom:

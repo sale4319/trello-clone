@@ -10,6 +10,7 @@ export const BoardCard = ({ board, newBoard = false, handleNewBoardClick }) => {
     };
 
     const boardName = board ? board.name : 'Create a new Board';
+
     return (
         <div
             className={`board-card-container ${newBoard ? 'board-card-color-new' : 'board-card-color-default'}`}

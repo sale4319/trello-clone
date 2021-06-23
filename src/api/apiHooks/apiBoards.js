@@ -10,7 +10,8 @@ export const useGetBoards = () => {
     const { setBoards } = useContext(BoardContext);
     const { pathname } = useLocation();
     const { data, setData, isFetching, setIsFetching, error, setError, isSuccess, setIsSuccess } = useApiResponse();
-    useEffect(() => {
+
+    const reFetchBoards = () => {
         console.log('calling useGetBoards()');
         setIsFetching(true);
 
@@ -22,8 +23,12 @@ export const useGetBoards = () => {
             })
             .catch(({ response }) => setError(response?.data))
             .finally(() => setIsFetching(false));
+    }
+
+    useEffect(() => {
+        reFetchBoards();
     }, [pathname]);
-    return { data, isFetching, error, isSuccess };
+    return { data, isFetching, reFetchBoards, error, isSuccess };
 };
 
 export const useGetBoard = (id) => {

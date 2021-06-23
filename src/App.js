@@ -21,13 +21,11 @@ const App = () => {
               <TitleBar />
             </div>
             <div className="content">
-              <Router>
-                <Switch>
-                  <PrivateRoute path={Routes.Boards} component={Boards} exact={true} />
-                  <PrivateRoute component={Board} path={Routes.Board} />
-                  <Route path={Routes.Home} component={Home} />
-                </Switch>
-              </Router>
+              <Switch>
+                <PrivateRoute path={Routes.Boards} component={Boards} exact={true} />
+                <PrivateRoute component={Board} path={Routes.Board} />
+                <Route path={Routes.Home} component={Home} />
+              </Switch>
             </div>
           </BoardProvider>
         </AuthProvider>

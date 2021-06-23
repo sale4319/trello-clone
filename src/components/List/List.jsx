@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
-import { ListCard } from './ListCard';
+import { Card } from '../Card/Card';
+import CardNew from '../Card/CardNew';
 import ListTitle from './ListTitle';
 
 export const List = ({ list, cards, index }) => {
+    const [addingNewCard, setAddingNewCard] = useState(false);
 
     return (
         <Draggable draggableId={list.id} index={index}>
@@ -28,7 +30,7 @@ export const List = ({ list, cards, index }) => {
                                                 {...dragProvided.draggableProps}
                                                 {...dragProvided.dragHandleProps}
                                                 ref={dragProvided.innerRef}>
-                                                <ListCard card={card} isDragging={dragSnapshot.isDragging} />
+                                                <Card card={card} isDragging={dragSnapshot.isDragging} />
                                             </div>
                                         )}
                                     </Draggable>
@@ -37,7 +39,10 @@ export const List = ({ list, cards, index }) => {
                             </div>
                         )}
                     </Droppable>
-                    <div className="list-add-new-card">+ Add another card</div>
+                    <CardNew show={addingNewCard} listId={list.id} handleClose={() => setAddingNewCard(false)} />
+                    <div className="list-add-new-card" onClick={() => setAddingNewCard(true)}>
+                        + Add {!!cards && cards.length > 0 ? 'another' : 'a'} card
+                    </div>
                 </div>
             )}
         </Draggable>

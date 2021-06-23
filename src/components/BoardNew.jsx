@@ -14,6 +14,13 @@ const BoardNew = (props) => {
         }
     }, [boardName]);
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter' && nameValid) {
+            onSubmit(boardName);
+            onClose();
+        }
+    };
+
     return (
         <div className="new-board-container">
             <div className="new-board-content">
@@ -26,6 +33,7 @@ const BoardNew = (props) => {
                         placeholder="Board name"
                         value={boardName}
                         onChange={event => setBoardName(event.target.value)}
+                        onKeyPress={handleKeyPress}
                     />
                 </div>
 
@@ -38,7 +46,7 @@ const BoardNew = (props) => {
                         onClick={() => {
                             if (nameValid) {
                                 onSubmit(boardName);
-                                onClose(window.location.reload()); //I should fix this, not a good practice!
+                                onClose();
                             }
                         }}>
                         Confirm

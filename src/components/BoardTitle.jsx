@@ -10,15 +10,13 @@ const BoardTitle = ({ board }) => {
     const [editingTitle, setEditingTitle] = useState(false);
     const [deletingBoard, setDeletingBoard] = useState(false);
 
-    const [newTitle, setNewTitle] = useState(board.name);
     const [deleteBoardId, setDeleteBoardId] = useState();
     const { isSuccess: isSuccessDelete, isFetching: isFetchingDelete } = useDeleteBoard(deleteBoardId);
-    const { isSuccess: isSuccessEdit, isFetching: isFetchingEdit } = useEditBoardName(
-        board.id,
-        board.name,
-        newTitle,
-        editingTitle,
-    );
+
+    const [newTitle, setNewTitle] = useState(board.name);
+    const [submitNewTitle, setSubmitNewTitle] = useState('');
+    useEditBoardName(board.id, submitNewTitle);
+
     const history = useHistory();
 
     useEffect(() => {
@@ -34,12 +32,14 @@ const BoardTitle = ({ board }) => {
     }, [board.name]);
 
     const handleEditComplete = () => {
+        setSubmitNewTitle(newTitle);
         setEditingTitle(false);
     };
 
     const handleEnterKeyPress = (event) => {
         setEditingTitle(true);
         if (event.key === 'Enter') {
+            setSubmitNewTitle(newTitle);
             setEditingTitle(false);
         }
     };

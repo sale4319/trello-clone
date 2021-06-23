@@ -131,8 +131,8 @@
 }
 /*END OF LIST TITLE CSS */
 
-/*LIST CARD CSS */
-.list-card-container {
+/*CARD CSS */
+.card-container {
       min-height: 10px;
       background-color: white;
       border-radius: 4px;
@@ -141,13 +141,26 @@
       cursor: pointer;
 }
 
-.list-card-container:hover {
+.card-container:hover {
   background-color: #F4F5F7;
 }
-.list-card-dragging {
+.card-dragging {
   transform: rotate(5deg);
 }
-/*END OF LIST CARD CSS */
+/*END OF CARD CSS */
+
+/*CARD NEW CSS */
+.card-new-text-area { 
+  flex-direction: column;
+  padding: 8px;
+  font-family: inherit;
+  border: 0.5px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  border-radius: 4px;
+  font-style: inherit;
+}
+/*END OF CARD NEW CSS */
 
 /*ALL BOARDS CSS */
 .all-boards-container{

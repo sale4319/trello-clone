@@ -15,3 +15,6 @@ export const updateCardPositionDifferentList = (
     tokenHolder,
 ) =>
     axiosInstance.put(`1/cards/${id}${keyToken(tokenHolder)}&pos=${newPosition}&idList=${listId}`);
+
+export const createNewCard = (listId, name, tokenHolder) =>
+    axiosInstance.post(`1/cards${keyToken(tokenHolder)}&idList=${listId}&name=${name}&pos=bottom`);

@@ -4,5 +4,5 @@ export const ApiRoute = 'https://api.trello.com/';
 export const Routes = {
     Home: '/',
     Boards: '/boards',
-    Board: `/board`,
+    Board: `/board/:boardId/:cardId?`,
 };

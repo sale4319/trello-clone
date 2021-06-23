@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { DragDropContext, Droppable, } from 'react-beautiful-dnd';
 
 import { BoardContext, CardModalContext } from '../providers/';
-import { Routes } from '../constants/Routes';
 import { List } from '../components/List/List';
 import BoardTitle from '../components/Board/BoardTitle';
 import ListNew from '../components/List/ListNew';
@@ -13,14 +11,10 @@ import { useGetBoard } from '../api/apiHooks/apiBoards';
 import { useUpdateListPosition } from '../api/apiHooks/apiLists';
 import { useUpdateCardPosition } from '../api/apiHooks/apiCards';
 
-
-
 export const Board = () => {
     const [selectedBoardId, setSelectedBoardId] = useState();
-    const { pathname } = useLocation();
-    const history = useHistory();
     const { selectedBoard: board, setSelectedBoard } = useContext(BoardContext);
-    const { showModal, setShowModal, selectedCard } = useContext(CardModalContext);
+    const { showModal, setShowModal, selectedCard, setSelectedCard } = useContext(CardModalContext);
 
     const [movedList, setMovedList] = useState({ listId: '', newPosition: 0 });
     useUpdateListPosition(movedList);
@@ -35,16 +29,23 @@ export const Board = () => {
 
     const { data } = useGetBoard(selectedBoardId);
 
+    let { cardId, boardId } = useParams();
+
     useEffect(() => {
-        const pathSplit = pathname.split(`${Routes.Board}/`);
-        if (pathSplit.length === 0 || !pathSplit[1]) {
-            history.push(Routes.Home);
-        } else {
-            const pathSplit = pathname.split(`${Routes.Board}/`);
-            const boardPathId = pathSplit[1];
-            setSelectedBoardId(boardPathId);
+        console.log('Board object', board);
+        if (boardId) {
+            setSelectedBoardId(boardId);
         }
-    }, []);
+
+        if (cardId && board) {
+            board.cards.forEach(card => {
+                if (card.id === cardId) {
+                    setShowModal(true);
+                    setSelectedCard(card);
+                }
+            })
+        }
+    }, [board]);
 
     useEffect(() => {
         if (data) {
@@ -125,6 +126,7 @@ export const Board = () => {
             }
         }
     };
+
     const handleDragCard = (source, destination, draggableId) => {
         const { droppableId: sourceList } = source;
         const { droppableId: destinationList, index: destinationIndex } = destination;

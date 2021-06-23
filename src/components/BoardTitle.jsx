@@ -50,7 +50,7 @@ const BoardTitle = ({ board }) => {
     };
 
     return (
-        <div style={{}}>
+        <div>
             {editingTitle ? (
                 <AutosizeInput
                     name="title"
@@ -84,7 +84,7 @@ const BoardTitle = ({ board }) => {
                         <>
                             <div
                                 className="board-title-delete">
-                                <span style={{}}>Are you sure you want to delete this board?</span>
+                                <span>Are you sure you want to delete this board?</span>
                             </div>
                             <RiCheckboxCircleFill
                                 size="40"

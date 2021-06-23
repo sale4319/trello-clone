@@ -17,8 +17,8 @@ export const Boards = () => {
     }, []);
 
     return (
-        <div className={`all-boards-container ${showModal && 'backdrop'}`}>
-            <div style={{ flex: 1 }}>
+        <div className={`all-boards-container ${showModal && 'all-boards-backdrop'}`}>
+            <div className="all-boards-box">
                 {boards
                     ?.filter(board => !board.closed)
                     .map(board => (

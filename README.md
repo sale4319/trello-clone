@@ -1,17 +1,20 @@
 ### Mandatory requirements: 
-* Design similar to Trello
-* UI that retains functionality of Trello
+* Style the application​ in the spirit​ of the current Trello design :heavy_check_mark:
+* It resembles the designs of the original app and it looks nice :heavy_check_mark:
+* Main view can be a list or a kanban board or something entirely different :heavy_check_mark:
 * Connect to Trello API :heavy_check_mark:
-* CRUD operations for: Boards, Lists, Cards, Comments
-* Moving cards between lists, drag and drop logic :heavy_check_mark:
-* Boards, Lists and Cards should be deep-linkable, Url scheme
+* CRUD operations for: Boards :heavy_check_mark:, Lists, Cards, Comments
+* Moving cards between lists :heavy_check_mark:
+* Boards, Lists, and Cards should be deep-linkable, implement a url scheme
 
 ### Optional requrements
-* State management
-* Unit tests
+* Moving lists on board :heavy_check_mark:
+* Cards and lists persist new position :heavy_check_mark:
+* Centralized state management :x:
+* Unit tests :x:
 * Deep-link to comment
-* User page
-* Sidebar
-* Your wildest dreams :neutral_face:
+* User page :x:
+* Sidebar :x:
+* Your wildest dreams :x:
 
 ## Happy coding!

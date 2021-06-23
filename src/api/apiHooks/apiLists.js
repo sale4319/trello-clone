@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import _ from 'lodash';
 import { useApiResponse } from '../AxiosConfig';
 import { AuthContext, BoardContext } from '../../providers/';
-import { updateListPosition } from '../apiEndpoints/Lists';
+import { createList, updateListPosition, closeList } from '../apiEndpoints/Lists';
 
 export const useUpdateListPosition = (movedList) => {
     const { isSuccess, isFetching, setIsFetching, setIsSuccess, setError, error } = useApiResponse();
@@ -35,4 +35,59 @@ export const useUpdateListPosition = (movedList) => {
     }, [id, position]);
 
     return { isSuccess, error, isFetching };
+};
+
+export const useCreateList = (name) => {
+    const { isSuccess, setIsFetching, setIsSuccess, setError, error } = useApiResponse();
+    const { selectedBoard, setSelectedBoard, boards, setBoards } = useContext(BoardContext);
+    const { tokenHolder } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (!name) return;
+
+        if (selectedBoard) {
+            setIsFetching(true);
+            createList(selectedBoard.id, name, tokenHolder)
+                .then(({ data }) => {
+                    let updatedBoard;
+                    updatedBoard = selectedBoard.lists
+                        ? { ...selectedBoard, lists: [...selectedBoard.lists, data] }
+                        : { ...selectedBoard, lists: [data] };
+                    setSelectedBoard(updatedBoard);
+                    setBoards([...boards.filter(board => board.id !== updatedBoard.id), updatedBoard]);
+                    setIsSuccess(true);
+                })
+                .catch(({ response }) => setError(response.data))
+                .finally(() => setIsFetching(false));
+        }
+    }, [name]);
+
+    return { isSuccess, error };
+};
+
+export const useCloseList = (id) => {
+    const { isSuccess, error, setError, setIsFetching, setIsSuccess } = useApiResponse();
+    const { tokenHolder } = useContext(AuthContext);
+    const { selectedBoard, setSelectedBoard, boards, setBoards } = useContext(BoardContext);
+
+    useEffect(() => {
+        if (!id) return;
+
+        console.log(`calling useCloseList(${id})`);
+        setIsFetching(true);
+        closeList(id, tokenHolder)
+            .then(() => {
+                if (selectedBoard) {
+                    const updatedBoardLists = selectedBoard.lists.filter(list => list.id !== id);
+                    const updatedBoard = { ...selectedBoard, lists: updatedBoardLists };
+                    setSelectedBoard(updatedBoard);
+                    setBoards([...boards.filter(board => board.id !== selectedBoard.id), updatedBoard]);
+                }
+                setIsSuccess(true);
+            })
+            .catch(({ response }) => setError(response.data))
+            .finally(() => setIsFetching(false));
+    }, [id]);
+
+    return { isSuccess, error };
 };

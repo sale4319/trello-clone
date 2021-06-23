@@ -7,6 +7,7 @@ import { BoardContext } from '../providers/';
 import { Routes } from '../constants/Routes';
 import { List } from '../components/List/List';
 import BoardTitle from '../components/Board/BoardTitle';
+import ListNew from '../components/List/ListNew';
 import { useGetBoard } from '../api/apiHooks/apiBoards';
 import { useUpdateListPosition } from '../api/apiHooks/apiLists';
 import { useUpdateCardPosition } from '../api/apiHooks/apiCards';
@@ -52,8 +53,8 @@ export const Board = () => {
     const updateListPosition = (draggableId, destination) => {
         const { index: targetIndex } = destination;
         console.log(targetIndex);
-        const sourceIndex = board?.lists?.findIndex(list => list.id === draggableId) ?? 0;
-        const numberOfLists = board?.lists?.length;
+        const sourceIndex = board?.lists.findIndex(list => list.id === draggableId) ?? 0;
+        const numberOfLists = board?.lists.length;
         if (numberOfLists) {
             let newListPosition;
             if (targetIndex === 0) {
@@ -79,11 +80,7 @@ export const Board = () => {
     const updateCardPosition = (draggableId, source, destination) => {
         const { index: targetIndex, droppableId: destinationDroppableId } = destination;
         const { droppableId: sourceDroppableId } = source;
-        const sourceIndex =
-            board?.cards
-                ?.filter(card => card.idList === destinationDroppableId)
-                .findIndex(card => card.id === draggableId) ?? 0;
-        const numberOfCardsInList = board?.cards?.filter(card => card.idList === destinationDroppableId).length ?? 0;
+        const numberOfCardsInList = board?.cards.filter(card => card.idList === destinationDroppableId).length ?? 0;
 
         if (board?.cards) {
             let newCardPosition;
@@ -130,7 +127,7 @@ export const Board = () => {
         const { droppableId: sourceList } = source;
         const { droppableId: destinationList, index: destinationIndex } = destination;
 
-        const targetCard = board?.cards?.find(card => card.id === draggableId);
+        const targetCard = board?.cards.find(card => card.id === draggableId);
 
         if (targetCard && board?.cards) {
             if (sourceList === destinationList) {
@@ -168,17 +165,17 @@ export const Board = () => {
     return (
         <div className="board-container">
             {board && <BoardTitle board={board} />}
-            <div>
+            <div className="general-container">
                 <DragDropContext onDragEnd={handleDragEnd}>
                     <Droppable droppableId="allLists" direction="horizontal" type="LIST">
                         {provided => (
                             <div className="board-box" ref={provided.innerRef} {...provided.droppableProps}>
-                                {board?.lists?.map((list, index) => (
+                                {board?.lists.map((list, index) => (
                                     <List
                                         index={index}
                                         key={list.id}
                                         list={list}
-                                        cards={board?.cards?.filter(card => card.idList === list.id)}
+                                        cards={board?.cards.filter(card => card.idList === list.id)}
                                     />
                                 ))}
                                 {provided.placeholder}
@@ -186,6 +183,7 @@ export const Board = () => {
                         )}
                     </Droppable>
                 </DragDropContext>
+                {board && <ListNew />}
             </div>
         </div>
     );

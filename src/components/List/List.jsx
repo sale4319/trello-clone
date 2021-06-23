@@ -2,6 +2,7 @@ import React from 'react'
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 import { ListCard } from './ListCard';
+import ListTitle from './ListTitle';
 
 export const List = ({ list, cards, index }) => {
 
@@ -13,14 +14,13 @@ export const List = ({ list, cards, index }) => {
                     {...dragListProvided.dragHandleProps}
                     {...dragListProvided.draggableProps}
                     ref={dragListProvided.innerRef}>
-                    <div className="list-title">{list.name}</div>
+                    <ListTitle name={list.name} listId={list.id} />
                     <Droppable droppableId={list.id} type="CARD">
                         {(dropCardProvided, dropCardSnapshot) => (
                             <div
-                                className="list-box"
+                                className={`list-box ${dropCardSnapshot.isDraggingOver && 'list-card-shadow'}`}
                                 {...dropCardProvided.droppableProps}
-                                ref={dropCardProvided.innerRef}
-                                style={dropCardSnapshot.isDraggingOver ? { backgroundColor: '#D9DBE3' } : {}}>
+                                ref={dropCardProvided.innerRef}>
                                 {cards?.map((card, index) => (
                                     <Draggable draggableId={card.id} index={index} key={card.id}>
                                         {(dragProvided, dragSnapshot) => (

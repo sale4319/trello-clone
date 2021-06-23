@@ -15,8 +15,8 @@ export const TitleBar = () => {
     }
     return (
         <div className="titlebar-container">
-            <img className="titlebar-image" src="../home.png" alt="Boards" onClick={handleHome} />&nbsp;
-            <img className="titlebar-image" src="../boards.png" alt="Home" onClick={handleBoards} />
+            <img className="titlebar-image" src="../home.png" alt="Home" onClick={handleHome} />&nbsp;
+            <img className="titlebar-image" src="../boards.png" alt="Boards" onClick={handleBoards} />
             <div className="titlebar-title">Trello's Fratello</div>
         </div>
     );

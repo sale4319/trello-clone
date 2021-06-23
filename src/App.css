@@ -31,7 +31,6 @@
 /* TITLEBAR CSS */
 .titlebar-container {
   display: flex;
-  justify-content: left;
   align-items: center;
   background-color: #77B3D4;
   padding: 10px 50px;
@@ -49,17 +48,17 @@
 }
 
 .titlebar-image:hover {
-    background-color: #c0ebf8;
-    border-radius: 5px;
+  background-color: #c0ebf8;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.title {
+.titlebar-title {
+  margin: auto;
   font-size: 30;
   color: white;
   font-weight: bold;
 }
-
 /* END OF TITLEBAR CSS */
 
 /*LIST CSS */
@@ -108,18 +107,19 @@
 
 /*LIST CARD CSS */
 .list-card-container {
-  min-height: 10px;
-  background-color: white;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 8px;
-  cursor: pointer;
+      min-height: 10px;
+      background-color: white;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
 }
 
 .list-card-container:hover {
-background-color: #F4F5F7;
+  background-color: #F4F5F7;
 }
 /*END OF LIST CARD CSS */
+
 /*ALL BOARDS CSS */
 .all-boards-container{
   display: flex;
@@ -298,7 +298,6 @@ background-color: #F4F5F7;
   margin: 16px;
 }
 
-
 .board-card-color-default {
   background-color: #b6e6fc;
 }
@@ -324,6 +323,7 @@ background-color: #F4F5F7;
   box-orient: vertical;
   color: white;
 }
+
 .board-card-text-center {
   font-weight: 300;
   text-align: center;

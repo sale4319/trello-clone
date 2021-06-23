@@ -12,7 +12,6 @@ export const Board = () => {
     const [board, setBoard] = useState();
     const [selectedBoardId, setSelectedBoardId] = useState();
     const { pathname } = useLocation();
-
     const history = useHistory();
 
     const { data } = useGetBoard(selectedBoardId);
@@ -24,9 +23,11 @@ export const Board = () => {
     }, [data]);
 
 
+
     useEffect(() => {
         const pathSplit = pathname.split(`${Routes.Board}/`);
         if (pathSplit.length === 0 || !pathSplit[1]) {
+            history.push(Routes.Home);
         } else {
             const pathSplit = pathname.split(`${Routes.Board}/`);
             const boardPathId = pathSplit[1];

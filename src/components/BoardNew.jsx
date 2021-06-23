@@ -38,7 +38,7 @@ const BoardNew = (props) => {
                         onClick={() => {
                             if (nameValid) {
                                 onSubmit(boardName);
-                                onClose();
+                                onClose(window.location.reload()); //Fix this, not a good practice!
                             }
                         }}>
                         Confirm

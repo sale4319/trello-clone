@@ -7,11 +7,11 @@ export const TitleBar = () => {
 
     const handleHome = () => {
         history.push(Routes.Home);
-        window.location.reload();
+        window.location.reload(); //Fix this, not a good practice!
     }
     const handleBoards = () => {
         history.push(Routes.Boards);
-        window.location.reload();
+        window.location.reload(); //Fix this, not a good practice!
     }
     return (
         <div className="titlebar-container">

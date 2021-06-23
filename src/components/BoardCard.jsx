@@ -19,6 +19,7 @@ export const BoardCard = ({ board, newBoard = false, handleNewBoardClick }) => {
             <div
                 className={`board-card-text ${newBoard && 'board-card-text-center'}`}
                 title={boardName}>
+                {boardName}
             </div>
         </div>
     );

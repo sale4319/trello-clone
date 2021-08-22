@@ -44,7 +44,6 @@ export const useGetBoard = (id) => {
     useEffect(() => {
         if (!id) return;
 
-        console.log(`calling useGetBoard`);
         setIsFetching(true);
         setIsSuccess(false);
         getBoard(id, tokenHolder)

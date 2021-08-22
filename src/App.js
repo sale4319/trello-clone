@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import { TitleBar } from './components/TitleBar';
 import { PrivateRoute } from './components/PrivateRoute';

@@ -400,6 +400,7 @@
   font-size: 16px;
   border-radius: 4px;
   font-style: inherit;
+  resize: none;
 }
 /*END OF CARD CSS */
 

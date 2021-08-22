@@ -8,7 +8,6 @@ export const TitleBar = () => {
     return (
         <div className="titlebar-container">
             <div className="titlebar-image-container">
-                <img className="titlebar-image" src="/home.png" alt="Home" onClick={() => history.push(Routes.Home)} />&nbsp;
                 <img className="titlebar-image" src="/boards.png" alt="Boards" onClick={() => history.push(Routes.Boards)} />
             </div>
             <div className="titlebar-title">Trello's Fratello</div>

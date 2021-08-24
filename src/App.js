@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import { TitleBar } from './components/TitleBar';
+import TitleBar from './components/TitleBar/TitleBar';
 import { PrivateRoute } from './components/PrivateRoute';
 import { BoardsPage } from './pages/BoardsPage';
 import { BoardPage } from './pages/BoardPage';

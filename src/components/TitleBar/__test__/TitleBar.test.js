@@ -3,17 +3,22 @@ import { TitleBar }from '../TitleBar';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-test("image renders with correct alt and src", () => {
+let getByTestId;
+
+beforeEach(() => {
     const component = render(<TitleBar />);
-    const imgEl = component.getByTestId("img");
+    getByTestId = component.getByTestId;
+})
+
+test("image renders with correct alt and src", () => {
+    const imgEl = getByTestId("img");
 
     expect(imgEl.alt).toBe("Boards");
     expect(imgEl.src).toEqual("http://localhost/boards.png");
 });
 
 test("title renders with correct text", () => {
-    const component = render(<TitleBar />);
-    const titleEl = component.getByTestId("title");
+    const titleEl = getByTestId("title");
 
     expect(titleEl.textContent).toBe("Trello's Fratello");
 });

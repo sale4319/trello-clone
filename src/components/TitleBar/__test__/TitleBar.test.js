@@ -1,7 +1,10 @@
 import React from 'react';
 import { TitleBar }from '../TitleBar';
+
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+
+import renderer from 'react-test-renderer';
 
 let getByTestId;
 
@@ -21,4 +24,9 @@ test("title renders with correct text", () => {
     const titleEl = getByTestId("title");
 
     expect(titleEl.textContent).toBe("Trello's Fratello");
+});
+
+test("mateches snapshot", () => {
+    const tree = renderer.create(<TitleBar/>).toJSON();
+    expect(tree).toMatchSnapshot();
 });

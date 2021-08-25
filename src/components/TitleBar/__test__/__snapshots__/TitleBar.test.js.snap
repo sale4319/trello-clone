@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mateches snapshot 1`] = `
+<div
+  className="titlebar-container"
+>
+  <div
+    className="titlebar-image-container"
+  >
+    <img
+      alt="Boards"
+      className="titlebar-image"
+      data-testid="img"
+      onClick={[Function]}
+      src="/boards.png"
+    />
+  </div>
+  <div
+    className="titlebar-title"
+    data-testid="title"
+  >
+    Trello's Fratello
+  </div>
+</div>
+`;

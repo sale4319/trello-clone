@@ -16,3 +16,5 @@ export const useApiResponse = () => {
 
     return { data, setData, isFetching, setIsFetching, error, setError, isSuccess, setIsSuccess };
 };
+
+export const keyToken = (tokenHolder) => `?key=${tokenHolder.apiKey}&token=${tokenHolder.apiToken}`;

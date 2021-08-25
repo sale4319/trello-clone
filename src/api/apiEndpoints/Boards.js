@@ -1,6 +1,4 @@
-import { axiosInstance } from '../AxiosConfig';
-
-const keyToken = (tokenHolder) => `?key=${tokenHolder.apiKey}&token=${tokenHolder.apiToken}`;
+import { axiosInstance, keyToken } from '../AxiosConfig';
 
 export const createBoard = (name, tokenHolder) =>
     axiosInstance.post(`1/boards${keyToken(tokenHolder)}&name=${name}`);

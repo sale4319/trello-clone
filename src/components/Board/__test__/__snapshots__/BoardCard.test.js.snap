@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mateches snapshot 1`] = `
+<div
+  className="board-card-container board-card-color-default"
+  onClick={[Function]}
+>
+  <div
+    className="board-card-text false"
+    title="Create a new Board"
+  >
+    Create a new Board
+  </div>
+</div>
+`;

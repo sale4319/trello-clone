@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mateches snapshot 1`] = `
+<div
+  className="board-modal-container"
+>
+  <div
+    className="board-modal-content"
+  >
+    <div
+      className="board-modal-title"
+    >
+      <div />
+    </div>
+    <div
+      className="board-modal-body"
+    >
+      <input
+        className="board-modal-input"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Board name"
+        value=""
+      />
+    </div>
+    <div
+      className="board-modal-footer"
+    >
+      <div
+        className="board-modal-button
+                            board-modal-button-confirm-invalid"
+        onClick={[Function]}
+      >
+        Confirm
+      </div>
+      <div
+        className="board-modal-button board-modal-button-close"
+      >
+        Close
+      </div>
+    </div>
+  </div>
+</div>
+`;

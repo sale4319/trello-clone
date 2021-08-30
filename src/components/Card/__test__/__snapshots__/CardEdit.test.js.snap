@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component renders and takes snapshot 1`] = `
+<div>
+  <span>
+    ss
+  </span>
+</div>
+`;

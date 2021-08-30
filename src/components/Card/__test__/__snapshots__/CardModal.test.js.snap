@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component renders and takes snapshot 1`] = `
+<div>
+  <div
+    class="card-modal-container"
+  >
+    <div
+      class="card-modal-content"
+    >
+      <div
+        class="card-modal-body"
+      >
+        <div
+          class="card-modal-title"
+        >
+          <svg
+            class="card-modal-icon"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g>
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 8H4v8h16v-8zm0-2V5H4v4h16zm-5-3h4v2h-4V6z"
+              />
+            </g>
+          </svg>
+          <div
+            class="card-modal-subtitle"
+          >
+            <span>
+              ss
+            </span>
+          </div>
+          <svg
+            class="card-modal-delete-comment-icon flex-content-end"
+            fill="currentColor"
+            height="25"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              Delete this card
+            </title>
+            <g>
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M17 4h5v2h-2v15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6H2V4h5V2h10v2zM9 9v8h2V9H9zm4 0v8h2V9h-2z"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          class="card-modal-divider"
+        />
+        <div>
+          <div
+            class="card-modal-title"
+          >
+            <svg
+              class="card-modal-icon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+                <path
+                  d="M20 22H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1zm-1-2V4H5v16h14zM8 7h8v2H8V7zm0 4h8v2H8v-2zm0 4h5v2H8v-2z"
+                />
+              </g>
+            </svg>
+            <div
+              class="card-modal-subtitle"
+            >
+              Description
+            </div>
+          </div>
+          <div>
+            <textarea
+              class="card-modal-input"
+              placeholder="Add a more detailed description"
+            />
+          </div>
+        </div>
+        <div
+          class="card-modal-divider"
+        />
+        <div>
+          <div
+            class="card-modal-title"
+          >
+            <svg
+              class="card-modal-icon"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="8"
+                x2="21"
+                y1="6"
+                y2="6"
+              />
+              <line
+                x1="8"
+                x2="21"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="8"
+                x2="21"
+                y1="18"
+                y2="18"
+              />
+              <line
+                x1="3"
+                x2="3.01"
+                y1="6"
+                y2="6"
+              />
+              <line
+                x1="3"
+                x2="3.01"
+                y1="12"
+                y2="12"
+              />
+              <line
+                x1="3"
+                x2="3.01"
+                y1="18"
+                y2="18"
+              />
+            </svg>
+            <span
+              class="card-modal-subtitle"
+            >
+              Activity
+            </span>
+          </div>
+          <div>
+            <input
+              class="card-modal-activity-input"
+              placeholder="Write a comment..."
+              type="text"
+              value=""
+            />
+            <div
+              class="card-modal-button card-modal-description-save-button card-modal-activity-button"
+              hidden=""
+            >
+              Save
+            </div>
+            <div />
+          </div>
+        </div>
+        <div
+          class="card-modal-divider"
+        />
+        <div
+          class="card-modal-footer"
+        >
+          <div
+            class="card-modal-button card-modal-button-close"
+          >
+            Close
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

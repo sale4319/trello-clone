@@ -1,15 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mateches snapshot 1`] = `
-<div
-  className="board-card-container board-card-color-default"
-  onClick={[Function]}
->
+exports[`component renders and takes snapshot 1`] = `
+<div>
   <div
-    className="board-card-text false"
-    title="Create a new Board"
+    class="board-card-container board-card-color-default"
   >
-    Create a new Board
+    <div
+      class="board-card-text false"
+      title="Create a new Board"
+    >
+      Create a new Board
+    </div>
   </div>
 </div>
 `;

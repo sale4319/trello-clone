@@ -1,16 +1,9 @@
 import React from 'react';
-import ListTitle from '../ListTitle';
-
+import  ListTitle  from '../ListTitle';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import renderer from 'react-test-renderer';
-
-test('component renders', () => {
-    renderer.create(<ListTitle />).getInstance();
-
+test('component renders and takes snapshot', () => {
+    const component = render(<ListTitle/>);
+    expect(component.container).toMatchSnapshot();
   });
-
-test("mateches snapshot", () => {
-    const tree = renderer.create(<ListTitle/>).toJSON();
-    expect(tree).toMatchSnapshot();
-});

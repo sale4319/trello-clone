@@ -1,16 +1,9 @@
 import React from 'react';
-import ListNew from '../ListNew';
-
+import  ListNew  from '../ListNew';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import renderer from 'react-test-renderer';
-
-test('component renders', () => {
-    renderer.create(<ListNew />).getInstance();
-
+test('component renders and takes snapshot', () => {
+    const component = render(<ListNew/>);
+    expect(component.container).toMatchSnapshot();
   });
-
-test("mateches snapshot", () => {
-    const tree = renderer.create(<ListNew/>).toJSON();
-    expect(tree).toMatchSnapshot();
-});

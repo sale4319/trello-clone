@@ -1,42 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mateches snapshot 1`] = `
-<div
-  className="board-modal-container"
->
+exports[`component renders and takes snapshot 1`] = `
+<div>
   <div
-    className="board-modal-content"
+    class="board-modal-container"
   >
     <div
-      className="board-modal-title"
-    >
-      <div />
-    </div>
-    <div
-      className="board-modal-body"
-    >
-      <input
-        className="board-modal-input"
-        onChange={[Function]}
-        onKeyPress={[Function]}
-        placeholder="Board name"
-        value=""
-      />
-    </div>
-    <div
-      className="board-modal-footer"
+      class="board-modal-content"
     >
       <div
-        className="board-modal-button
-                            board-modal-button-confirm-invalid"
-        onClick={[Function]}
+        class="board-modal-title"
       >
-        Confirm
+        <div />
       </div>
       <div
-        className="board-modal-button board-modal-button-close"
+        class="board-modal-body"
       >
-        Close
+        <input
+          class="board-modal-input"
+          placeholder="Board name"
+          value=""
+        />
+      </div>
+      <div
+        class="board-modal-footer"
+      >
+        <div
+          class="board-modal-button
+                            board-modal-button-confirm-invalid"
+        >
+          Confirm
+        </div>
+        <div
+          class="board-modal-button board-modal-button-close"
+        >
+          Close
+        </div>
       </div>
     </div>
   </div>

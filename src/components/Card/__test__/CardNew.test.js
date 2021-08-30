@@ -1,16 +1,9 @@
 import React from 'react';
-import CardNew from '../CardNew';
-
+import  CardNew  from '../CardNew';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import renderer from 'react-test-renderer';
-
-test('component renders', () => {
-    renderer.create(<CardNew />).getInstance();
-
+test('component renders and takes snapshot', () => {
+    const component = render(<CardNew/>);
+    expect(component.container).toMatchSnapshot();
   });
-
-test("mateches snapshot", () => {
-    const tree = renderer.create(<CardNew/>).toJSON();
-    expect(tree).toMatchSnapshot();
-});

@@ -1,25 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mateches snapshot 1`] = `
-<div
-  className="titlebar-container"
->
+exports[`component renders and takes snapshot 1`] = `
+<div>
   <div
-    className="titlebar-image-container"
+    class="titlebar-container"
   >
-    <img
-      alt="Boards"
-      className="titlebar-image"
-      data-testid="img"
-      onClick={[Function]}
-      src="/boards.png"
-    />
-  </div>
-  <div
-    className="titlebar-title"
-    data-testid="title"
-  >
-    Trello's Fratello
+    <div
+      class="titlebar-image-container"
+    >
+      <img
+        alt="Boards"
+        class="titlebar-image"
+        data-testid="img"
+        src="/boards.png"
+      />
+    </div>
+    <div
+      class="titlebar-title"
+      data-testid="title"
+    >
+      Trello's Fratello
+    </div>
   </div>
 </div>
 `;

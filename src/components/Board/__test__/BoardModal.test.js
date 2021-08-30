@@ -1,16 +1,9 @@
 import React from 'react';
 import BoardModal from '../BoardModal';
-
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import renderer from 'react-test-renderer';
-
-test('component renders', () => {
-    renderer.create(<BoardModal />).getInstance();
-
+test('component renders and takes snapshot', () => {
+    const component = render(<BoardModal/>);
+    expect(component.container).toMatchSnapshot();
   });
-
-test("mateches snapshot", () => {
-    const tree = renderer.create(<BoardModal/>).toJSON();
-    expect(tree).toMatchSnapshot();
-});

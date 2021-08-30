@@ -1,16 +1,9 @@
 import React from 'react';
 import { BoardCard } from '../BoardCard';
-
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import renderer from 'react-test-renderer';
-
-test('component renders', () => {
-    renderer.create(<BoardCard />).getInstance();
-
+test('component renders and takes snapshot', () => {
+    const component = render(<BoardCard/>);
+    expect(component.container).toMatchSnapshot();
   });
-
-test("mateches snapshot", () => {
-    const tree = renderer.create(<BoardCard/>).toJSON();
-    expect(tree).toMatchSnapshot();
-});

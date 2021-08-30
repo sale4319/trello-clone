@@ -1,14 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mateches snapshot 1`] = `
-<div
-  className="list-new-container"
->
+exports[`component renders and takes snapshot 1`] = `
+<div>
   <div
-    className="list-new-button"
-    onClick={[Function]}
+    class="list-new-container"
   >
-    + Add another list
+    <div
+      class="list-new-button"
+    >
+      + Add another list
+    </div>
   </div>
 </div>
 `;

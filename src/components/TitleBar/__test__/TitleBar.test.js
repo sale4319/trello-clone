@@ -4,14 +4,17 @@ import { TitleBar }from '../TitleBar';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import renderer from 'react-test-renderer';
-
 let getByTestId;
 
 beforeEach(() => {
     const component = render(<TitleBar />);
     getByTestId = component.getByTestId;
 })
+
+test('component renders and takes snapshot', () => {
+    const component = render(<TitleBar />);
+    expect(component.container).toMatchSnapshot();
+  });
 
 test("image renders with correct alt and src", () => {
     const imgEl = getByTestId("img");
@@ -24,9 +27,4 @@ test("title renders with correct text", () => {
     const titleEl = getByTestId("title");
 
     expect(titleEl.textContent).toBe("Trello's Fratello");
-});
-
-test("mateches snapshot", () => {
-    const tree = renderer.create(<TitleBar/>).toJSON();
-    expect(tree).toMatchSnapshot();
 });
